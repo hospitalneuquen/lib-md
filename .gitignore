@@ -31,3 +31,17 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
+
+# Bower
+bower_components
+
+# Varios
+.tmp
+docs/bower_components
+docs/docs/.tmp
+docs/docs/bower_components
+docs/dist
+docs/dist/plex-canvas
+docs/node_modules
+css/dist
+js/dist 
