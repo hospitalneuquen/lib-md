@@ -67,119 +67,52 @@
         </div>
     </div>
 </footer>
-
-<div class="container">
-    <div class="page-header" ng-show="Plex.title">
-        <h1><i class="fa fa-arrow-circle-left hover" ng-click="Plex.closeView()" ng-if="Plex.currentViewIndex > 0"></i><span ng-bind='Plex.title'></span>&nbsp;<small ng-bind="Plex.subtitle"></small></h1>
-    </div>
-    <div plex-view class="plex-view"></div>
-</div> -->
-
-<style>
-    .box3,
-    .box2,
-    .box1 {
-        display: flex;
-        box-sizing: border-box;
-        min-width: 100%;
-    }
-
-    .box1 {
-        max-height: 70%;
-        flex: 1 1 70%;
-    }
-
-    .box2 {
-        height: 20px;
-    }
-
-    .box3 {
-        height: 30%;
-        max-height: 30%;
-        flex: 1 1 30%;
-    }
-
-</style>
-
-<md-toolbar>
+ -->
+<md-toolbar layout="row">
+    <!-- <div class="md-toolbar-tools"> -->
+    <!-- <md-button id="main" class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+            <md-icon md-svg-icon="menu"></md-icon>
+        </md-button> -->
+    ​
+    <!-- <h3>{{titulo}}</h3>​ -->
     <div class="md-toolbar-tools">
-        <md-button aria-label="Go Back">
-            Go Back
-        </md-button>
-        <h2>
-            <span>Toolbar with Standard Buttons</span>
-        </h2>
-        <span flex></span>
-        <md-button class="md-raised" aria-label="Learn More">
-            Learn More
-        </md-button>
-        <md-button class="md-fab md-mini" aria-label="Favorite">
-            <!-- <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon> -->
-        </md-button>
+        <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+    </div>
+    <!-- <span flex></span> -->​
+    <div class="md-toolbar-tools">
+        <md-menu>
+            <md-button class="md-icon-button" aria-label="More" ng-click="$mdOpenMenu($event)">
+                <md-icon md-menu-origin="">more_vert</md-icon>
+            </md-button>
+            ​
+            <md-menu-content width="4">
+                <md-menu-item>
+                    <md-button ng-click="ul.editProfile($event)">
+                        <md-icon>account_circle</md-icon>
+                        Perfil
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button disabled="disabled" ng-click="">
+                        <md-icon md-svg-icon="call:voicemail"></md-icon>
+                        Fake option
+                    </md-button>
+                </md-menu-item>
+                <md-menu-divider></md-menu-divider>
+                <md-menu-item>
+                    <md-button ng-click="hc.saludar()">
+                        <md-icon>exit_to_app</md-icon>
+                        Cerrar sesión
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
     </div>
 </md-toolbar>
-<div flex layout="row">
-    <md-sidenav flex="15" md-is-locked-open="true" class="md-whiteframe-z1">
-        <md-content>
-            sidenav
-        </md-content>
-    </md-sidenav>
-    <div layout="column" flex>
-        <div class="box1">
-            70
-        </div>
-        <div class="box2">
-            fixed
-        </div>
-        <div class="box3">
-            flex
-        </div>
+<div layout layout-padding>
+    <!-- <div flex=10></div> -->
+    <div flex>
+        <div plex-view class="plex-view"></div>
     </div>
-
-    <fieldset class="standard">
-         <legend>Using <code>ng-model</code></legend>
-         <div layout="column" layout-wrap layout-gt-sm="row" >
-           <div flex-xs flex="50">
-             <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">
-               Checkbox 1: {{ data.cb1 }}
-             </md-checkbox>
-           </div>
-           <div flex-xs flex="50">
-             <div layout-xs="column" flex-xs="100">
-               <md-checkbox
-                 ng-model="data.cb2"
-                 aria-label="Checkbox 2"
-                 ng-true-value="'yup'"
-                 ng-false-value="'nope'"
-                 class="md-warn md-align-top-left" flex>
-               Checkbox 2 (md-warn)  <br/>
-               <span class="ipsum">
-                 Duis placerat lectus et justo mollis, nec sodales orci congue. Vestibulum semper non urna ac suscipit.
-                 Vestibulum tempor, ligula id laoreet hendrerit, massa augue iaculis magna,
-                 sit amet dapibus tortor ligula non nibh.
-               </span>
-               <br/>
-               {{ data.cb2 }}
-             </md-checkbox>
-             </div>
-           </div>
-           <div flex-xs flex="50">
-             <md-checkbox ng-disabled="true" aria-label="Disabled checkbox" ng-model="data.cb3">
-               Checkbox: Disabled
-             </md-checkbox>
-           </div>
-           <div flex-xs flex="50">
-             <md-checkbox ng-disabled="true" aria-label="Disabled checked checkbox" ng-model="data.cb4" ng-init="data.cb4=true">
-               Checkbox: Disabled, Checked
-             </md-checkbox>
-           </div>
-           <div flex-xs flex="50">
-             <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
-               Checkbox (md-primary): No Ink
-             </md-checkbox>
-           </div>
-         </div>
-       </fieldset>
-       
-    <div plex-view class="plex-view"></div>
+    <!-- <div flex=10></div> -->
 </div>
