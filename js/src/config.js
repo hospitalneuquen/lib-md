@@ -6,6 +6,8 @@ var requiredModules = [
     'ngSanitize',
     // UI
     'ngMaterial',
+    'mdPickers',
+    'md.data.table',
     // Other
     // 'angularLoad',
     // 'pasvaz.bindonce',
@@ -67,7 +69,6 @@ angular
     }])
     .run(['$rootScope', 'Global', 'Plex', 'Session', function($rootScope, Global, Plex, Session) {
         angular.extend($rootScope, {
-            currentTheme: 'cosmo',
             // Acceso global a servicios
             Global: Global,
             Plex: Plex,

@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Orden de las tareas
-    grunt.registerTask('default', ['concat:js', /*'less:global',*/ 'less:fontawesome', 'copy']);
+    grunt.registerTask('default', ['concat:js', 'less:roboto', 'concat:css', 'copy']);
 
     grunt.initConfig({
         // Configuración de watch
@@ -45,6 +45,8 @@ module.exports = function(grunt) {
                     'bower_components/angular-aria/angular-aria.js',
                     'bower_components/angular-messages/angular-messages.js',
                     'bower_components/angular-material/angular-material.js',
+                    'bower_components/angular-material-data-table/dist/md-data-table.js',
+                    'bower_components/mdPickers/dist/mdPickers.js',
 
                     // Other
                     // 'bower_components/ocLazyLoad/dist/ocLazyLoad.min.js',
@@ -71,11 +73,13 @@ module.exports = function(grunt) {
                     'js/src/plex/services/plex.js',
                     'js/src/plex/services/PlexResolver.js',
                     'js/src/plex/directives/form.js',
+                    'js/src/plex/directives/plex.js',
                     'js/src/plex/directives/plexEnter.js',
                     'js/src/plex/directives/plexFocus.js',
                     'js/src/plex/directives/plexInclude.js',
                     'js/src/plex/directives/plexFilter.js',
                     'js/src/plex/directives/plexView.js',
+                    'js/src/plex/directives/plexSubmit.js',
                     // 'js/src/plex/directives/title.js',
                     'js/src/plex/filters/fromNow.js',
                     // 'js/src/plex/directives/plexMap.js',
@@ -86,23 +90,35 @@ module.exports = function(grunt) {
                     'js/src/config.js'
                 ]
             },
+            css: { // Archivos .css
+                nonull: true,
+                dest: './css/dist/lib.css',
+                src: [
+                    'bower_components/angular-material/angular-material.css',
+                    'bower_components/angular-material-data-table/dist/md-data-table.css',
+                    'bower_components/mdPickers/dist/mdPickers.css',
+                    'bower_components/angular-motion/dist/angular-motion.css',
+                    'bower_components/material-design-icons/iconfont/material-icons.css',
+                    '.tmp/roboto-fontface.css'
+                ]
+            },
         },
         // Configuración de la tarea grunt-contrib-less
         less: {
-            global: {
+            // global: {
+            //     files: [{
+            //         src: ['css/src/plex/global.less'],
+            //         dest: 'css/src/plex/global.css'
+            //     }]
+            // },
+            roboto: {
                 files: [{
-                    src: ['css/src/plex/global.less'],
-                    dest: 'css/src/plex/global.css'
-                }]
-            },
-            fontawesome: {
-                files: [{
-                    src: ['bower_components/font-awesome/less/font-awesome.less'],
-                    dest: '.tmp/font-awesome.css'
+                    src: ['bower_components/roboto-fontface/css/roboto-fontface.less'],
+                    dest: '.tmp/roboto-fontface.css'
                 }],
                 options: {
                     modifyVars: {
-                        'fa-font-path': '"fonts"',
+                        'roboto-font-path': '"fonts"',
                     }
                 },
             },
@@ -115,17 +131,16 @@ module.exports = function(grunt) {
                 dest: 'css/dist/fonts',
                 expand: true
             },
-            fontawesome: {
-                cwd: 'bower_components/font-awesome/fonts',
+            materialIcons: {
+                cwd: 'bower_components/material-design-icons/iconfont/',
                 src: '**/*',
-                dest: 'css/dist/fonts',
+                dest: 'css/dist',
                 expand: true
             },
-
-            temp: {
-                cwd: 'bower_components/angular-material',
-                src: '*.css',
-                dest: 'css/dist',
+            roboto: {
+                cwd: 'bower_components/roboto-fontface/fonts/',
+                src: '**/*',
+                dest: 'css/dist/fonts',
                 expand: true
             },
         }

@@ -68,14 +68,15 @@
     </div>
 </footer>
  -->
-<md-toolbar layout="row">
+
+<md-toolbar flex layout>
     <!-- <div class="md-toolbar-tools"> -->
     <!-- <md-button id="main" class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
             <md-icon md-svg-icon="menu"></md-icon>
         </md-button> -->
     ​
     <!-- <h3>{{titulo}}</h3>​ -->
-    <div class="md-toolbar-tools">
+    <div ng-show="Plex.loading.showSmall" class="md-toolbar-tools am-fade">
         <md-progress-linear md-mode="indeterminate"></md-progress-linear>
     </div>
     <!-- <span flex></span> -->​
@@ -84,7 +85,6 @@
             <md-button class="md-icon-button" aria-label="More" ng-click="$mdOpenMenu($event)">
                 <md-icon md-menu-origin="">more_vert</md-icon>
             </md-button>
-            ​
             <md-menu-content width="4">
                 <md-menu-item>
                     <md-button ng-click="ul.editProfile($event)">
@@ -109,10 +109,6 @@
         </md-menu>
     </div>
 </md-toolbar>
-<div layout layout-padding>
-    <!-- <div flex=10></div> -->
-    <div flex>
-        <div plex-view class="plex-view"></div>
-    </div>
-    <!-- <div flex=10></div> -->
+<div flex layout-padding class="md-padding">
+    <div plex-view class="plex-view"></div>
 </div>

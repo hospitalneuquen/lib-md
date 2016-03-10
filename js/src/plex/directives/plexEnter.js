@@ -35,5 +35,5 @@ angular.module('plex').directive('plexEnter', function() {
                 }
             });
         }
-    }
+    };
 });

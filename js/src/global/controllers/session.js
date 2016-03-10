@@ -1,4 +1,4 @@
-angular.module('global').controller('/Lib/Controllers/Session', ['$scope', 'Session', function($scope, Session) {
+angular.module('global').controller('/Lib/Controllers/Session', ['$scope', 'Session', '$mdDialog', function($scope, Session, $mdDialog) {
     // Define el modelo
     angular.extend($scope, {
         username: null,
@@ -12,7 +12,13 @@ angular.module('global').controller('/Lib/Controllers/Session', ['$scope', 'Sess
             }).then(function(data) {
                 Session.login(data.token);
             }).catch(function() {
-                self.error = true;
+                $mdDialog.show(
+                    $mdDialog.alert()
+                    .clickOutsideToClose(true)
+                    .title('Error en la autenticación')
+                    .textContent('El usuario o contraseña son incorrectos')
+                    .ok('Aceptar')
+                );
             });
         },
         // unlock: function () {
