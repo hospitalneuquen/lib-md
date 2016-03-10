@@ -28,6 +28,7 @@
     "material-design-icons": "~2.2.0",
     "angular-material-data-table": "~0.9.12",
     "angular-motion": "~0.4.3",
-    "roboto-fontface": "~0.4.5"
+    "roboto-fontface": "~0.4.5",
+    "mdPickers": "~0.6.1"
   }
 }
