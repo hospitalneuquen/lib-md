@@ -29,6 +29,7 @@
     "angular-material-data-table": "~0.9.12",
     "angular-motion": "~0.4.3",
     "roboto-fontface": "~0.4.5",
-    "mdPickers": "~0.6.1"
+    "mdPickers": "~0.7.1",
+    "moment": "~2.12.0"
   }
 }

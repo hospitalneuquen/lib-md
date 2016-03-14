@@ -46,6 +46,7 @@ module.exports = function(grunt) {
                     'bower_components/angular-messages/angular-messages.js',
                     'bower_components/angular-material/angular-material.js',
                     'bower_components/angular-material-data-table/dist/md-data-table.js',
+                    'bower_components/moment/moment.js',
                     'bower_components/mdPickers/dist/mdPickers.js',
 
                     // Other
@@ -63,8 +64,6 @@ module.exports = function(grunt) {
                     'js/src/global/controllers/session.js',
 
                     // Plex
-                    'js/src/plex/lib/moment/moment.js',
-                    'js/src/plex/lib/moment/es.js',
                     // 'js/src/plex/lib/textangular/rangy-core.js',
                     // 'js/src/plex/lib/textangular/rangy-selectionsaverestore.js',
                     // 'js/src/plex/lib/textangular/textAngularSetup.js',
