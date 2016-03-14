@@ -76,11 +76,16 @@
         </md-button> -->
     ​
     <!-- <h3>{{titulo}}</h3>​ -->
-    <div ng-show="Plex.loading.showSmall" class="md-toolbar-tools am-fade">
-        <md-progress-linear md-mode="indeterminate"></md-progress-linear>
-    </div>
-    <!-- <span flex></span> -->​
     <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Volver" ng-click="Plex.closeView()" ng-if="Plex.currentViewIndex > 0">
+            <md-icon>keyboard_arrow_left</md-icon>
+        </md-button>
+
+        <div ng-show="Plex.loading.showSmall" class="md-toolbar-tools am-fade">
+            <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+        </div>
+        <!-- <span flex></span> -->​
+
         <md-menu>
             <md-button class="md-icon-button" aria-label="More" ng-click="$mdOpenMenu($event)">
                 <md-icon md-menu-origin="">more_vert</md-icon>
