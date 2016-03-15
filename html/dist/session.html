@@ -1,9 +1,7 @@
-<div flex layout ng-controller="/Lib/Controllers/Session">
-    <div flex layout="column" layout-align="center center">
-        <div flex><br/><br/><br/></div>
-        <div flex class="md-whiteframe-5dp md-padding">
+<div flex layout ng-controller="/Lib/Controllers/Session" layout-align="center center">
+    <md-content class="md-whiteframe-5dp md-padding">
 
-            <!-- <div ng-show="Session.state == 'inactive'" class="col-sm-12">
+        <!-- <div ng-show="Session.state == 'inactive'" class="col-sm-12">
                 <h3>
                     <i class="fa fa-lock"></i>
                     <span>Iniciar sesión</span>
@@ -16,30 +14,30 @@
                 </h3>
                 <h4>Para tu seguridad las sesiones se bloquean después de algunos minutos de inactividad. Esto ayuda a proteger los datos con los que estabas trabajando.</h4>
             </div> -->
-            <h1 class="md-display-1">Iniciar sesión</h1>
-            <form>
-                <md-input-container class="md-block">
-                    <label>Usuario</label>
-                    <input name="username" ng-model="username" ng-required="true" plex plex-focus="!username" plex-enter="login()">
-                </md-input-container>
-                <md-input-container class="md-block">
-                    <label>Contraseña</label>
-                    <input type="password" name="password" ng-model="password" ng-required="true" plex plex-enter="login()">
-                </md-input-container>
-                <div ng-show="error" class="row pretty">
-                    <div class="col-sm-12">
-                        <div class="alert alert-danger">
-                            <i class="fa fa-warning"></i>
-                            <span>El usuario o contraseña ingresados son incorrectos</span>
-                        </div>
+        <h1 class="md-display-1">Iniciar sesión</h1>
+        <form>
+            <md-input-container class="md-block">
+                <label>Usuario</label>
+                <input name="username" ng-model="username" ng-required="true" plex plex-focus="!username" plex-enter="login()">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Contraseña</label>
+                <input type="password" name="password" ng-model="password" ng-required="true" plex plex-enter="login()">
+            </md-input-container>
+            <div ng-show="error" class="row pretty">
+                <div class="col-sm-12">
+                    <div class="alert alert-danger">
+                        <i class="fa fa-warning"></i>
+                        <span>El usuario o contraseña ingresados son incorrectos</span>
                     </div>
                 </div>
-                <md-input-container layout>
-                    <md-button flex class="md-raised md-primary" plex-submit="login()">Iniciar sesión</md-button>
-                </md-input-container>
-            </form>
+            </div>
+            <md-input-container layout>
+                <md-button flex class="md-raised md-primary" plex-submit="login()">Iniciar sesión</md-button>
+            </md-input-container>
+        </form>
 
-            <!-- <div class="row pretty">
+        <!-- <div class="row pretty">
                     <div ng-show="Session.state == 'inactive'" class="col-sm-12">
                         <a class="btn btn-primary navbar-btn" plex-submit="login()">
                             <i class="fa fa-lock"></i>
@@ -61,6 +59,5 @@
                         </a>
                     </div>
                 </div> -->
-        </div>
-    </div>
+    </md-content>
 </div>
