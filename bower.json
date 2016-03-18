@@ -30,6 +30,7 @@
     "angular-motion": "~0.4.3",
     "roboto-fontface": "~0.4.5",
     "mdPickers": "~0.7.1",
-    "moment": "~2.12.0"
+    "moment": "~2.12.0",
+    "highcharts": "~4.2.3"
   }
 }

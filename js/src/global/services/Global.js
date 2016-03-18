@@ -7,7 +7,7 @@
  * Funciones reusables para aplicaciones
  *
  **/
-angular.module('global').factory('Global', ['$q', '$filter', '$window', function($q, $filter, $window) {
+angular.module('global').factory('Global', ['$q', '$filter', '$window', '$document', '$timeout', function($q, $filter, $window, $document, $timeout) {
     return {
         _initPromises: [],
         _searchCache: [],
@@ -225,7 +225,72 @@ angular.module('global').factory('Global', ['$q', '$filter', '$window', function
         isEmpty: function(obj) {
             return (obj === null || obj === undefined || obj === "" || (angular.isArray(obj) && !obj.length) || angular.equals(obj, {}));
         },
+        /**
+         * @ngdoc method
+         * @name Global#loadScript
+         * @description Dynamically loads the given script
+         * @param src The url of the script to load dynamically
+         * @returns {Promise} Promise that will be resolved once the script has been loaded.
+         */
+        loadScript: function(url) {
+            var cache = this.cache;
+            var promise = cache.get('loadScript', url, null);
+            if (!promise) {
+                var deferred = $q.defer();
 
+                var element = $document[0].createElement('script');
+                element.src = url;
+                $document[0].body.appendChild(element);
+
+                element.onload = element.onreadystatechange = function(e) {
+                    $timeout(function() {
+                        deferred.resolve(e);
+                    });
+                };
+                element.onerror = function(e) {
+                    $timeout(function() {
+                        deferred.reject(e);
+                    });
+                };
+                cache.put('loadScript', url, null, deferred.promise);
+                promise = deferred.promise;
+            }
+            return promise;
+        },
+        /**
+         * @ngdoc method
+         * @name Global#loadScript
+         * @description Dynamically loads the given CSS file
+         * @param src The url of the script to load dynamically
+         * @returns {Promise} Promise that will be resolved once the script has been loaded.
+         */
+        loadCSS: function(url) {
+            var cache = this.cache;
+            var promise = cache.get('loadScript', url, null);
+            if (!promise) {
+                var deferred = $q.defer();
+
+                var element = $document[0].createElement('link');
+		        element.rel = 'stylesheet';
+		        element.type = 'text/css';
+		        element.href = url;
+                $document[0].head.appendChild(element);
+
+                element.onload = element.onreadystatechange = function(e) {
+                    $timeout(function() {
+                        deferred.resolve(e);
+                    });
+                };
+                element.onerror = function(e) {
+                    $timeout(function() {
+                        deferred.reject(e);
+                    });
+                };
+                cache.put('loadScript', url, null, deferred.promise);
+                promise = deferred.promise;
+            }
+            return promise;
+        },
         /**
          * @ngdoc method
          * @name Global#minify

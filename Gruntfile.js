@@ -82,7 +82,7 @@ module.exports = function(grunt) {
                     // 'js/src/plex/directives/title.js',
                     'js/src/plex/filters/fromNow.js',
                     // 'js/src/plex/directives/plexMap.js',
-                    // 'js/src/plex/directives/plexChart.js',
+                    'js/src/plex/directives/plexChart.js',
                     // 'js/src/plex/directives/plexCanvas.js',
 
                     // Config
@@ -98,6 +98,7 @@ module.exports = function(grunt) {
                     'bower_components/mdPickers/dist/mdPickers.css',
                     'bower_components/angular-motion/dist/angular-motion.css',
                     'bower_components/material-design-icons/iconfont/material-icons.css',
+                    'css/src/webfont-medical-icons/wfmi-style.css',
                     '.tmp/roboto-fontface.css'
                 ]
             },
@@ -140,6 +141,12 @@ module.exports = function(grunt) {
                 cwd: 'bower_components/roboto-fontface/fonts/',
                 src: '**/*',
                 dest: 'css/dist/fonts',
+                expand: true
+            },
+            hightcharts: {
+                cwd: 'bower_components/highcharts/',
+                src: 'highcharts.js',
+                dest: 'js/dist',
                 expand: true
             },
         }

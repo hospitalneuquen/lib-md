@@ -1,6 +1,6 @@
 {
   "eqeqeq": false,
-  "predef": ["angular", "console", "module"],
+  "predef": ["angular", "console", "module", "Highcharts"],
   "-W100":true,
   "strict": "implied"
 }
