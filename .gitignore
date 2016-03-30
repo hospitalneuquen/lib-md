@@ -44,4 +44,5 @@ docs/dist
 docs/dist/plex-canvas
 docs/node_modules
 css/dist
-js/dist 
+css/fonts
+js/dist

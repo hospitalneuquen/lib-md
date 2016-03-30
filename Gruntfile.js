@@ -47,6 +47,7 @@ module.exports = function(grunt) {
                     'bower_components/angular-material/angular-material.js',
                     'bower_components/angular-material-data-table/dist/md-data-table.js',
                     'bower_components/moment/moment.js',
+                    'bower_components/moment/locale/es.js',
                     'bower_components/mdPickers/dist/mdPickers.js',
 
                     // Other
@@ -98,6 +99,7 @@ module.exports = function(grunt) {
                     'bower_components/mdPickers/dist/mdPickers.css',
                     'bower_components/angular-motion/dist/angular-motion.css',
                     'bower_components/material-design-icons/iconfont/material-icons.css',
+                    'bower_components/mdi/css/materialdesignicons.css',
                     'css/src/webfont-medical-icons/wfmi-style.css',
                     '.tmp/roboto-fontface.css'
                 ]
@@ -135,6 +137,12 @@ module.exports = function(grunt) {
                 cwd: 'bower_components/material-design-icons/iconfont/',
                 src: '**/*',
                 dest: 'css/dist',
+                expand: true
+            },
+            materialdesignicons: {
+                cwd: 'bower_components/mdi/fonts/',
+                src: '**/*',
+                dest: 'css/dist/fonts',
                 expand: true
             },
             roboto: {

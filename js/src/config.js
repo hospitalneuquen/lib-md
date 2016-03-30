@@ -23,7 +23,7 @@ var requiredModules = [
 // Crea el módulo principal de la aplicación (app)
 angular
     .module('app', requiredModules)
-    .config(['$locationProvider', '$httpProvider', function($locationProvider, $httpProvider) {
+    .config(['$locationProvider', '$httpProvider', '$mdIconProvider', function($locationProvider, $httpProvider, $mdIconProvider) {
 //    .config(['$locationProvider', '$httpProvider', '$provide', function($locationProvider, $httpProvider, $provide) {
         // TODO: Verificar si es necesario habilitar esta línea para celulares
         //$locationProvider.html5Mode(false);
@@ -66,6 +66,9 @@ angular
                 return data;
             }
         });
+
+        // $mdIconProvider.defaultIconSet('/lib-md/css/dist/MaterialIcons-Regular.svg', 24);
+        $mdIconProvider.iconSet('mdi', '/lib-md/css/dist/fonts/materialdesignicons-webfont.svg', 24)
     }])
     .run(['$rootScope', 'Global', 'Plex', 'Session', function($rootScope, Global, Plex, Session) {
         angular.extend($rootScope, {
